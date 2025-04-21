@@ -1,0 +1,52 @@
+.container {
+  padding: 30px;
+  background-color: #fffaf3;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  max-width: 900px;
+  margin: 30px auto;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.heading {
+  font-size: 28px;
+  color: #4e342e;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.noReviews {
+  font-size: 18px;
+  color: #7b5e57;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.reviewList {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.reviewItem {
+  background-color: #fef4e8;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.05);
+}
+
+.author {
+  font-weight: bold;
+  color: #5d4037;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.content {
+  font-size: 16px;
+  color: #6d4c41;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}

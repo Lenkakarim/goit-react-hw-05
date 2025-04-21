@@ -1,0 +1,56 @@
+.container {
+  padding: 20px 30px;
+  background-color: #fffaf3;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  max-width: 900px;
+  margin: 30px auto;
+}
+
+.heading {
+  font-size: 28px;
+  color: #4e342e;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.castList {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.castItem {
+  background-color: #fef4e8;
+  border-radius: 12px;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.05);
+  padding: 10px;
+  width: 140px;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.castItem:hover {
+  transform: translateY(-3px);
+}
+
+.actorImg {
+  width: 100px;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.actorName {
+  font-weight: bold;
+  color: #5d4037;
+  margin-bottom: 5px;
+  font-size: 16px;
+}
+
+.character {
+  color: #7b5e57;
+  font-size: 14px;
+}

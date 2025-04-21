@@ -1,12 +1,42 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
+import styles from "./Header.module.css";
+import classNames from "classnames";
+
 const Header = () => {
+  const location = useLocation();
+  const isMoviesPage =
+    location.pathname.startsWith("/movies");
+
   return (
-    <header>
+    <header
+      className={classNames(styles.header, {
+        [styles.headerDark]: isMoviesPage,
+      })}
+    >
       <nav>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/movies">Movies</NavLink>
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            classNames(styles.navLink, {
+              [styles.activeLink]: isActive,
+            })
+          }
+        >
+          Home
+        </NavLink>
+        <NavLink
+          to="/movies"
+          className={({ isActive }) =>
+            classNames(styles.navLink, {
+              [styles.activeLink]: isActive,
+            })
+          }
+        >
+          Movies
+        </NavLink>
       </nav>
     </header>
   );
 };
+
 export default Header;

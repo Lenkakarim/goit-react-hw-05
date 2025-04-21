@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { searchMovies } from "../../services/api";
-import SearchForm from "../../components/searchForm/SearchForm";
+import SearchForm from "../../components/SearchForm/SearchForm";
+import Loader from "../../components/Loader/Loader";
 import s from "./MoviesPage.module.css";
+
 const defaultImg =
   "https://dl-media.viber.com/10/share/2/long/vibes/icon/image/0x0/95e0/5688fdffb84ff8bed4240bcf3ec5ac81ce591d9fa9558a3a968c630eaba195e0.jpg";
+
 const MoviesPage = () => {
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
@@ -35,10 +38,10 @@ const MoviesPage = () => {
     <div className={s.movies}>
       <SearchForm onSubmit={handleSubmit} />
 
-      {/* {isLoading && <Loader />} */}
+      {isLoading && <Loader className={s.loader} />}
 
       {!isLoading && movieName && movies.length === 0 && (
-        <p>
+        <p className={s.errorMessage}>
           We don't have any movies "{movieName}". Try again!
         </p>
       )}

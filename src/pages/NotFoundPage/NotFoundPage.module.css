@@ -1,0 +1,31 @@
+.container {
+  padding: 40px 20px;
+  background-color: #fffaf3;
+  text-align: center;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  max-width: 600px;
+  margin: 50px auto;
+}
+
+.heading {
+  font-size: 36px;
+  color: #4e342e;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.link {
+  display: inline-block;
+  padding: 12px 30px;
+  background-color: #f4e1d2;
+  color: #4e342e;
+  text-decoration: none;
+  font-size: 18px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.link:hover {
+  background-color: #e1bba7;
+}
