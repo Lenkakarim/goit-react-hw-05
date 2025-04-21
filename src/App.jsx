@@ -22,9 +22,6 @@ const MovieReviews = lazy(() =>
 const NotFoundPage = lazy(() =>
   import("./pages/NotFoundPage/NotFoundPage")
 );
-const SearchForm = lazy(() =>
-  import("./components/Header/Header")
-);
 
 function App() {
   return (
