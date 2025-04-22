@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useRef } from "react";
 import {
+  NavLink,
   Outlet,
   useParams,
   Link,
-  useNavigate,
   useLocation,
 } from "react-router-dom";
 import { getMovieDetails } from "../../services/api";
@@ -12,7 +12,6 @@ import styles from "./MovieDetailsPage.module.css";
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
-  const navigate = useNavigate();
   const location = useLocation();
   const backLinkRef = useRef(
     location.state?.from || "/movies"
@@ -44,13 +43,12 @@ const MovieDetailsPage = () => {
 
   return (
     <div className={styles.container}>
-      <button
+      <NavLink
         className={styles.backButton}
-        onClick={() => navigate(backLinkRef.current)}
+        to={backLinkRef.current}
       >
         ← Back
-      </button>
-
+      </NavLink>
       <h1 className={styles.title}>{movie.title}</h1>
 
       <p className={styles.textBlock}>
