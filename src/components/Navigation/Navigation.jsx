@@ -1,8 +1,8 @@
 import { NavLink, useLocation } from "react-router-dom";
-import styles from "./Header.module.css";
+import styles from "./Navigation.module.css";
 import classNames from "classnames";
 
-const Header = () => {
+const Navigation = () => {
   const location = useLocation();
   const isMoviesPage =
     location.pathname.startsWith("/movies");
@@ -39,4 +39,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Navigation;

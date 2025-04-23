@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import { searchMovies } from "../../services/api";
 import SearchForm from "../../components/SearchForm/SearchForm";
 import Loader from "../../components/Loader/Loader";
-import s from "./MoviesPage.module.css";
-
-const defaultImg =
-  "https://dl-media.viber.com/10/share/2/long/vibes/icon/image/0x0/95e0/5688fdffb84ff8bed4240bcf3ec5ac81ce591d9fa9558a3a968c630eaba195e0.jpg";
+import MovieList from "../../components/MovieList/MovieList";
+import styles from "./MoviesPage.module.css";
 
 const MoviesPage = () => {
   const [movies, setMovies] = useState([]);
@@ -34,46 +32,24 @@ const MoviesPage = () => {
     setSearchParams(value !== "" ? { query: value } : {});
     setMovies([]);
   };
+
   return (
-    <div className={s.movies}>
+    <div className={styles.movies}>
       <SearchForm onSubmit={handleSubmit} />
 
-      {isLoading && <Loader className={s.loader} />}
+      {isLoading && <Loader className={styles.loader} />}
 
       {!isLoading && movieName && movies.length === 0 && (
-        <p className={s.errorMessage}>
+        <p className={styles.errorMessage}>
           We don't have any movies "{movieName}". Try again!
         </p>
       )}
 
-      {movies.length > 0 && (
-        <ul className={s.list}>
-          {movies.map((movie) => (
-            <li key={movie.id} className={s.item}>
-              <Link
-                className={s.itemLink}
-                to={`/movies/${movie.id}`}
-                state={{
-                  from: `/movies?query=${movieName}`,
-                }}
-              >
-                <img
-                  src={
-                    movie.poster_path
-                      ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
-                      : defaultImg
-                  }
-                  width={250}
-                  height={350}
-                  alt={movie.title}
-                />
-                <p className={s.name}>
-                  {movie.title || movie.name}
-                </p>
-              </Link>
-            </li>
-          ))}
-        </ul>
+      {!isLoading && movies.length > 0 && (
+        <MovieList
+          movies={movies}
+          from={`/movies?query=${movieName}`}
+        />
       )}
     </div>
   );
